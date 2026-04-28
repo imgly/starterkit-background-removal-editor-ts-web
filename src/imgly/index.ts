@@ -134,5 +134,4 @@ export async function initBackgroundRemovalEditor(cesdk: CreativeEditorSDK) {
   // - Canvas menu: Uses official @imgly/plugin-background-removal-web
   // - Apps dock: Custom implementation with "Remove Background" action
   await setupBackgroundRemovalPlugin(cesdk);
-
 }
