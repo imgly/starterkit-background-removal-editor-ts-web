@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@cesdk/cesdk-js": "latest",
-    "@imgly/background-removal": "latest",
-    "@imgly/plugin-background-removal-web": "latest",
-    "onnxruntime-web": "^1.21.0"
+    "@imgly/background-removal": "1.7.0",
+    "@imgly/plugin-background-removal-web": "1.73.0",
+    "onnxruntime-web": "1.21.0"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
