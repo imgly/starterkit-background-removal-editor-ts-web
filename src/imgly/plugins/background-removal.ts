@@ -24,6 +24,8 @@
 
 import type { AssetDefinition, CreativeEngine } from '@cesdk/cesdk-js';
 import type CreativeEditorSDK from '@cesdk/cesdk-js';
+import BackgroundRemovalPlugin from '@imgly/plugin-background-removal-web';
+import { removeBackground } from '@imgly/background-removal';
 import { resolveAssetPath } from '../resolveAssetPath';
 
 const SOURCE_ID = 'ly.img.apps';
@@ -43,14 +45,10 @@ const SOURCE_ID = 'ly.img.apps';
 export async function setupBackgroundRemovalPlugin(
   cesdk: CreativeEditorSDK
 ): Promise<void> {
-  // Dynamic import to avoid bundling ONNX runtime (~30MB) at build time
-  const { default: BackgroundRemovalPlugin } =
-    await import('@imgly/plugin-background-removal-web');
-
   // WebGPU acceleration requires cross-origin isolation (SharedArrayBuffer).
   // Fall back to CPU when the environment does not support it, e.g. in iframes.
   const device = self.crossOriginIsolated ? 'gpu' : 'cpu';
-  
+
   // Add official background removal plugin for canvas menu button
   // This adds "BG Removal" to the canvas menu when an image is selected
   await cesdk.addPlugin(
@@ -208,8 +206,6 @@ async function applyBackgroundRemoval(cesdk: CreativeEditorSDK): Promise<void> {
 
   try {
     const imageInput = await convertUriToBlob(imageUri, engine);
-    // Dynamic import to avoid blocking editor startup (~30MB ONNX runtime)
-    const { removeBackground } = await import('@imgly/background-removal');
     const removedBackgroundBlob = await removeBackground(imageInput);
     const newImageUri = URL.createObjectURL(removedBackgroundBlob);
 
