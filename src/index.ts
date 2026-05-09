@@ -1,9 +1,10 @@
 /**
  * CE.SDK Background Removal Editor Starterkit - Main Entry Point
  *
- * A design editor with AI-powered background removal for creating stunning graphics.
+ * A design editor with AI-powered background removal prominently featured.
+ * Click on an image to see the background removal option in the canvas menu.
  *
- * @see https://img.ly/docs/cesdk/js/getting-started/
+ * @see https://img.ly/docs/cesdk/js/plugins/background-removal/
  */
 
 import CreativeEditorSDK from '@cesdk/cesdk-js';
@@ -16,13 +17,12 @@ import { resolveAssetPath } from './imgly/resolveAssetPath';
 // ============================================================================
 
 const config = {
-  userId: 'starterkit-background-removal-editor-user'
+  userId: 'starterkit-background-removal-editor-user',
 
-  // Local assets
-  // baseURL: `/assets/`,
+  // IMG.LY CDN (for quick testing only, NOT recommended for production)
 
-  // License key (required for production)
-  // license: 'YOUR_LICENSE_KEY',
+  // Local assets for development
+
 };
 
 // ============================================================================
