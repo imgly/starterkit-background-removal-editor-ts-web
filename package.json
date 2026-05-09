@@ -9,9 +9,9 @@
     "check:syntax": "tsc --noEmit"
   },
   "dependencies": {
-    "@cesdk/cesdk-js": "latest",
+    "@cesdk/cesdk-js": "^1.75.0-rc.4",
     "@imgly/background-removal": "1.7.0",
-    "@imgly/plugin-background-removal-web": "1.73.0",
+    "@imgly/plugin-background-removal-web": "^1.74.0",
     "onnxruntime-web": "1.21.0"
   },
   "devDependencies": {
